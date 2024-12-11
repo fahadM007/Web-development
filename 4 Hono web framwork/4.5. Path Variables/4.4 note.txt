@@ -1,0 +1,38 @@
+Path Variables
+
+Learning objectives
+You know what path variables are and know how to use them in your web applications
+
+what are path variables is a way to pass information to web server in the url of request commonly used by restful API 
+
+its used to identify specific resources or collection of resources 
+
+example 
+GET /users/123
+
+users = path 
+123 is the path variables representing a specific identifer
+
+advantages
+
+clarity makes api cleaner to understand 
+restful design allowing unique identification of resources 
+
+mapped paths and method to functions ad using the request parameters as part of an application.
+ Hono 
+
+ a path varaibles are used to define parts of the path as variables where parts of the path can be used to acces some resources from teh servers 
+
+ Path variables are used to define parts of a URL path as variables, allowing the application to access specific resources on the server based on the values provided in the path.
+
+ in hono the path variables are defined by prefixing a path with a colon :
+
+ The part of the path that is prefixed with the colon is then available in the Hono context through the param method of the req properties.
+
+ if /products/:id  the value of id would be available through `c.req.param("id)`;
+
+
+ path can aslo have multiple variables the example 
+ so in order to define a path variable pathname/:identifier
+
+

@@ -1,0 +1,22 @@
+Learning objectives
+You know what Deno Deploy is and know how to create a Deno Deploy project.
+
+serverless platform are cloude services that enaable devlopers to run applications without managaing the underlying server infrastructure . 
+
+AWS Lambda:
+Azure Functions:
+Google Cloud Functions
+IBM Cloud Functions:
+Firebase Cloud Functions
+Cloudflare Workers
+
+we need to install deployctl = deploy command tool
+
+generating a deploy token 
+
+
+Learning objectives
+You know what Deno Deploy is and know how to deploy your application to Deno Deploy.
+
+app.js contains the application code 
+app-run.js file will be used to run the application 

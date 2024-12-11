@@ -1,0 +1,29 @@
+
+
+web server is hadrware or software where that send web resources to the client 
+
+Hardware side webs srever is a computer that stores web servers software 
+web site components 
+
+web server connects to the internet and support physical data interchange with other devices connected to the web 
+
+## on the software side = web server includes several parts that contril how a web users acces hosted files 
+in  minimum terms http servers . an http server is a software that undertands URLS web address and the protocol your browsers uses to view pages 
+
+A static web server, or stack, consists of a computer (hardware) with an HTTP server (software). We call it "static" because the server sends its hosted files as-is to your browser.
+
+dynaimc web server = is a static web server with extra appliction software most commonly an application server and database 
+
+Technically, you could host all those files on your own computer, but it's far more convenient to store files all on a dedicated web server because:
+
+A dedicated web server is typically more available (up and running).
+Excluding downtime and system troubles, a dedicated web server is always connected to the Internet.
+A dedicated web server can have the same IP address all the time. This is known as a dedicated IP address. (Not all ISPs provide a fixed IP address for home lines.)
+A dedicated web server is typically maintained by a third party.
+
+https://developer.mozilla.org/en-US/docs/Learn/Server-sidebrhjhrhg
+
+
+Usually only clients make HTTP requests
+
+Servers respond to a client's HTTP

@@ -1,0 +1,23 @@
+###
+curl http://localhost:8000/
+
+###
+POST curl http://localhost:8000/
+
+###
+curl http://localhost:8000/it
+
+###
+curl -X POST http://localhost:8000/
+
+###
+curl -X CATS http://localhost:8000/secrets
+
+###
+curl -X WHATS http://localhost:8000/up
+
+###
+curl http://localhost:8000?operation=sum&number1=2&number2=2
+
+###
+curl http://localhost:8000?operation=difference&number1

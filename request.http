@@ -1,0 +1,47 @@
+### basic request 
+GET curl http://localhost:8000/
+
+### with path
+POST  curl http://localhost:8000/
+### with path with post 
+GET curl http://localhost:8000/it
+
+### request with a parameter 
+CATS http://localhost:8000/secrets
+
+### request with a parameter 
+GET http://localhost:8000?page=10
+
+### request with a parameter 
+GET http://localhost:8000?count=1
+
+### request with default 
+GET http://localhost:8000
+
+### request with default 
+GET http://localhost:8000?title=hero&name=Buffy
+
+### request with default 
+GET http://localhost:8000?title=hero&name=Buffy
+
+###dealing with numbers 
+GET http://localhost:8000?two=2
+
+###dealing with numbers 
+GET http://localhost:8000?one=1&two=2
+
+###dealing with numbers 
+GET http://localhost:8000?one=1&two=123
+
+###dealing with numbers product
+GET http://localhost:8000?operation=product&number1=2&number2=2
+
+###dealing with sum 
+GET http://localhost:8000?operation=sum&number1=8&number2=12
+
+
+###dealing with sum 
+GET http://localhost:8000?operation=sum&number2=12
+
+###dealing with sum 
+GET http://localhost:8000?operation=sum&number1=&number2=

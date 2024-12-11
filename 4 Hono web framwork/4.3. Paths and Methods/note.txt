@@ -1,0 +1,27 @@
+Learning objectives
+You know how to map paths and methods to functions with Hono.
+
+ a route is a mapping froma methods-path combination to a function 
+
+ ##Multiple routes
+
+ each route is explicity added using the methods provided by hono 
+
+ Asterisks in paths
+Asterisks * in Hono paths are used as wildcards. In the example above, the path /* matches all paths that have not been matched by any other route.
+
+
+##Request methods
+
+Hono has methods for adding routes where the method names correspond to the HTTP request methods 
+example is the get method is used to dine the routes for the request HTTP GET method 
+similar vein the post method would be used to define routes for request that use the http post 
+
+in order to define a non-conventionl methods we use the on method 
+
+app.on("unconventionl method","pathname",function")
+
+
+##Determining path and method
+
+the path and method are also inculded in the req property of the context.

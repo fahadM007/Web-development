@@ -1,0 +1,53 @@
+
+Learning objectives
+You know what request methods are and can handle requests with different request methods.
+
+the paramter in the funtions is the represents the http request sent to the server 
+
+contains details of all the HTTP request such as:
+
+The URL they are requesting (e.g., /, /about, /api).
+The method of the request (e.g., GET, POST, PUT, DELETE).
+Any headers that are included (e.g., content type, user agent).
+Body content (if there is any, like in a POST request).
+
+
+Using the template code given as a part of the assignment, create an application that responds to requests made to the server as follows. Whenever a request is made to the server, the response must consist of the message 'You made a request with method ${method}', where ${method} corresponds to the request method that was used. For example, if the request is made with the 'GET' request method, e.g. by simply browsing to 'http://localhost:8000', the server must respond with the message 'You made a request with method GET'. Similarly, if the request method is 'POST', then the response must be 'You made a request with method POST'. When completed, test the application locally and return it here.
+
+  http://0.0.0.0:8000/fahad/index.html
+
+  protocols https /http /ftl/emails 
+  ip address localhost 
+  ports 8000
+  paths 
+
+class URL { 
+  constructor(name, area, population) { 
+
+  this.name = name; 
+  this.area = area;
+  this.population = population; 
+} 
+}
+
+
+
+  const url = new URL("http://0.0.0.0:8000/fahad/index.html");
+
+  properties 
+  methods 
+
+Listening on http://0.0.0.0:8000/
+URL {
+  href: "http://0.0.0.0:8000/hello",
+  origin: "http://0.0.0.0:8000",
+  protocol: "http:",
+  username: "",
+  password: "",
+  host: "0.0.0.0:8000",
+  hostname: "0.0.0.0",
+  port: "8000",
+  pathname: "/hello",///
+  hash: "",
+  search: ""
+}

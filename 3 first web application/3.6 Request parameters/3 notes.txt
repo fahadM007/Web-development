@@ -1,0 +1,280 @@
+##Request Parameters
+
+Learning objectives
+You know what request parameters are and you know how to extract them from the request.
+
+They can be embedded to the URI typically in the case of HTTP GET requests
+
+OR the body of the request typically in the case of HTTP POST requests
+
+In the web request parameters this are pieces of information sent to the server from the client.
+
+THE method can be sent in two more ways Uniform resources locator(Uniform Resource Locator) or body of the request 
+
+1. URI (Uniform Resource Identifier) or URL parameters:
+
+-parameter included right in the web address 
+http://axamples.com/search?product=shoes§color=blue
+
+?product=shoes where locking for the product shoes 
+&color=blue adding another filter 
+
+###second part request body
+When conducting the post request the parameters are kept in the body inform of json or xml 
+-mostly for secure data or large data 
+
+This of a body like a letter 
+-sending extra information to the server
+-instead of writng it on the envelop URL put it in the body request package  
+
+Here’s a simple example of what the request body might look like:
+{
+  "name": "John Doe",
+  "email": "johndoe@example.com",
+  "password": "securepassword123"
+}
+
+POST /signup HTTP/1.1
+Host: example.com
+Content-Type: application/json
+{
+  "name": "John Doe",
+  "email": "johndoe@example.com",
+  "password": "securepassword123"
+}
+
+key points URL stays simple /signup only the path name 
+-all data like "name" "email" and "password" is part of the request body 
+-
+
+Request {
+  bodyUsed: false,
+  headers: Headers { accept: "*/*", host: "localhost:8000", "user-agent": "curl/8.9.1" },
+  method: "GET",
+  redirect: undefined,
+  url: "http://localhost:8000/secret"
+}
+
+The reason for the erros is due to the way the shell interprets special characters like ? adn & in the URL THE SHELL used will think this are special characters so it does not send them correctly as part of the URL 
+
+two solutions either escape or enclose entire URL in quotes 
+
+##Extracting request parameters
+
+-step 1 change the request URL into an object 
+- 
+
+# Request Object Properties
+
+The request object in web development, particularly in Node.js and Express.js, contains various properties that provide information about the HTTP request. Below are some of the key properties of the request object:
+
+## General Properties
+
+- **req.method**: 
+  - The HTTP method used (GET, POST, PUT, DELETE, etc.).
+
+- **req.url**: 
+  - The URL of the request, including the path and query string.
+
+- **req.headers**: 
+  - An object containing the headers sent with the request.
+
+- **req.params**: 
+  - An object containing route parameters (e.g., `/user/:id`).
+
+- **req.query**: 
+  - An object containing query string parameters (e.g., `?search=term`).
+
+- **req.body**: 
+  - Contains the body of the request, populated by middleware such as `body-parser`.
+
+## Advanced Properties
+
+- **req.cookies**: 
+  - An object containing cookies sent by the client.
+
+- **req.session**: 
+  - An object representing the session data for the current user (if session management is used).
+
+- **req.protocol**: 
+  - The protocol used for the request (http or https).
+
+- **req.ip**: 
+  - The remote IP address of the client.
+
+- **req.path**: 
+  - The path of the request URL.
+
+- **req.originalUrl**: 
+  - The original request URL, including any query string.
+
+## Miscellaneous Properties
+
+- **req.hostname**: 
+  - The hostname from the request URL.
+
+- **req.secure**: 
+  - A boolean indicating if the request was made using HTTPS.
+
+- **req.xhr**: 
+  - A boolean indicating if the request was made via XMLHttpRequest (AJAX).
+
+## Usage Example
+
+```javascript
+app.get('/user/:id', (req, res) => {
+  console.log(req.method); // GET
+  console.log(req.params.id); // User ID
+  console.log(req.query); // Query parameters
+  res.send('User ID: ' + req.params.id);
+});
+
+
+Properties of the URL Object
+
+Once you have created the URL object, you can access various properties:
+
+href: The full URL as a string.
+
+protocol: The protocol scheme (e.g., http:, https:).
+
+host: The host (e.g., localhost:3000).
+
+hostname: The hostname (e.g., localhost).
+
+port: The port number (e.g., 3000).
+
+pathname: The path of the URL (e.g., /example).
+
+search: The query string (e.g., ?query=param).
+
+searchParams: A URLSearchParams object containing the query parameters.
+
+one of the properties of the URL object that has been constructed by using the request url using the constructor method. 
+
+-searchParams this is an instance of the URLSearchParams class
+
+URLSearchParams class 
+provide important tools first 
+###- constructor
+-new searchParams();
+### instance properties
+-size = get total number of search Parameters
+### instance methods
+-append() = it adds key value pair as new search parameter.
+-delete = deletes Parameters
+
+-get() = it returns the first value associated to a given search parameter a string is returned or null if value not found 
+
+-getAll("name");= returns all values associated with a given search parameter as an array 
+`
+{
+  let url = new URL("https://example.com?foo=1&bar=2");
+  let param = new URLSearchParams(url.search);
+  param.append("foo", 4);
+  console.log(params.getAll("foo"));//prints 
+}
+
+`
+
+-has() = it returns a boolean value that indicates whether a parameter is in the search parameter.
+A parameter name and optional value are used to match parameters. If only a parameter name is specified, then the method will return true if any parameters in the query string match the name, and false otherwise.
+
+{
+  has("name");
+  has("name", value);
+  const url = new URL("https://example.com?foo=1&bar=2&foo=3");
+const params = new URLSearchParams(url.search);
+
+// has() returns true if the parameter is in the query string
+console.log(`bar?:\t${params.has("bar")}`);
+console.log(`bark?:\t${params.has("bark")}`);
+console.log(`foo?:\t${params.has("foo")}`);
+`
+bar?:  true
+bark?: false
+foo?:  true
+`
+}
+
+-keys() = returns an iterator allowing iteration through all keys contained in this object. The keys are strings.
+
+we need to create a special object that allows us to go through a collection of items one by one 
+
+iterator = its an object that progressively provides access to each item of a collections
+
+https://publications.csail.mit.edu/lcs/pubs/pdf/MIT-LCS-TR-225.pdf 
+
+{
+  // Create a test URLSearchParams object
+const searchParams = new URLSearchParams("key1=value1&key2=value2");
+
+// Display the keys
+for (const key of searchParams.keys()) {
+  console.log(key);
+}
+
+}
+
+-set() = this method part if the URLSearchParams interface sets the value associated with a given search parameter to give value. serval matches it will delete the others 
+if it does not exist it creates it 
+
+set(name, value);
+
+name =  is the name of the parameter
+value = is the value of the parameter
+The return value is undefined
+
+{
+  let url = new URL("https://example.com?foo=1&bar=2");
+let params = new URLSearchParams(url.search);
+
+// Add a third parameter.
+params.set("baz", 3);
+params.toString(); // "foo=1&bar=2&baz=3"
+
+}
+
+sort() = sorts key value pairs contained in the object and it uses a stable sorting alogarithm 
+{
+  // Create a test URLSearchParams object
+const searchParams = new URLSearchParams("c=4&a=2&b=3&a=1");
+
+// Sort the key/value pairs
+searchParams.sort();
+
+// Display the sorted query string
+console.log(searchParams.toString());
+a=2&a=1&b=3&c=4
+}
+
+toString() = it returns a string of URL 
+Note: This method returns the query string without the question mark. This is different from Location.search, HTMLAnchorElement.search, and URL.search, which all include the question mark.
+
+{
+  const url = new URL("https://example.com?foo=1&bar=2");
+const params = new URLSearchParams(url.search);
+
+// Add a second foo parameter.
+params.append("foo", 4);
+console.log(params.toString()); // Prints 'foo=1&bar=2&foo=4'
+
+}
+
+-values() = returns an iterator allowing iteration through all values contained in this object value are strings 
+
+{
+  const searchParams = new URLSearchParams("key1=value1&key2=value2");
+
+for (const value of searchParams.values()) {
+  console.log(value);
+}
+
+//value1
+//value2
+
+}
+
+##dealing with number 
+request parameter are alway strings 
+Number class object 

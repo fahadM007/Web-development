@@ -1,0 +1,76 @@
+# Defining and Submitting Forms
+
+Learning objectives
+You understand how forms work and can create forms using HTML.
+You can read submitted form data on the server.
+
+HTML forms
+HTML Forms are used for entering data and sending data to the server. Forms are created using the HTML form-element. Each form can contain from zero to a nearly unlimited amount of form fields. Each field is represented with a separate element.
+
+  ## Form element
+
+* Its has two attributes `method` and `action`. 
+* The method describes the used http method its either POST or GET 
+* while the action describes the path to which the data is sent. 
+* by default `GET` 
+* by default  if the action attribute is missing, the current address and path is used by default.
+
+
+```HTML
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hello forms!</title>
+  </head>
+  <body>
+    <form method="POST" action="/addresses">
+    </form>
+  </body>
+</html>
+```
+
+## A form with one input field
+
+we use the `input` element to create input 
+The input element has number of attributes 
+
+* `type` this describes the type of input filed 
+*  `id`  This attribute is used for referring to the input field from the  elements this provides a uniques identifer
+allowing it to be referenced or targeted by other elements or code
+
+```HTML 
+<label for="username">Username:</label>
+<input type="text" id="username" name="username">
+```
+
+* `name` used to identifying the input fields 
+
+The statement means that the name attribute in an HTML <input> element is used to identify the input field when the form is submitted, allowing the server to recognize and process the data entered into that input field.
+
+When a form is submitted, the browser sends the form data as key-value pairs. The name attribute is used as the key in this pair, while the value is the data entered by the user in the corresponding input field.
+
+
+## Forms labels
+
+The `label` element is used for referring to an input field with in the form and adding textual description for the input field.
+
+The for attribute of the <label> element links the label to a specific input field, providing a reference.
+
+The for attribute of the <label> element links the label to a specific input field, providing a reference.
+
+```HTML
+<form>
+  <label for="username">Username:</label>
+  <input type="text" id="username" name="username">
+  
+  <label for="password">Password:</label>
+  <input type="password" id="password" name="password">
+  
+  <button type="submit">Submit</button>
+</form>
+
+```
+
+›
+# Reading form data on server
+

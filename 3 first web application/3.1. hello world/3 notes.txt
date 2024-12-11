@@ -1,0 +1,64 @@
+Learning objectives
+You can create and run a web server using Deno.
+
+
+we create a server to show that the application can be run and shown in the browser 
+
+Response object using the "new" constructor key word 
+
+Disentangling the run command
+deno run === tells deno run the code that is given as parameter 
+--allow-net === give Deno the permission to access the network 
+--watch === this will automatically restart the server 
+"app.js ===  file that should be run.
+
+A response for every request
+
+Deno passes info about the request to the function that handles the request 
+in order to see the request we need to pass a parameter to our function. 
+The request parameter is an instance of the Request class
+
+//class = A class is a blueprint for creating an object (instance)
+//instance = specific object created from a class each instance can hvae its own properties and methods
+
+//Request class encapsulates all the details about the incoming request 
+"This includes properties like the request URL, HTTP method (GET, POST, etc.), headers, and the request body."
+
+
+//what it means for the Request Parameter 
+when the function receives the request parameter its an object that has access to all the methods and properties defined in the Request class 
+"You can interact with it to get information about the request without having to manually parse the data."
+
+//common Request instance
+##properties
+- request.url: full URL of the request 
+- request.method: HTTP method used for the request.
+-request.header : A header object containing all the request headers 
+##methods
+- request.text() it return plane text usefull for reading plain txt files 
+- request.json() a method that returns the body of the request usefull for APi request .
+
+`When you handle an incoming HTTP request in Deno, the request parameter is an instance of the Request class, which gives you structured access to all the details about that request. This makes it easier to work with HTTP requests and handle them appropriately in your application. If you have more questions or want further clarification, just let me know!`
+
+Debugging Applications
+Learning objectives
+You know the basics of debugging Deno applications.
+
+use a lot of console.log();
+//Formatting code
+Deno fmt = to format the code.
+//linting 
+checking for common erros and best practice 
+deno keyword = "lint" and file name 
+deno lint app.js
+
+##Reading error messages
+
+TypeError: Class constructor Response cannot be invoked without 'new'
+    at handleRequests (file:///Users/lachi.dong/Desktop/centria/web development/3 first web application/3.1. hello world/app.js:13:11)
+    at ext:deno_http/00_serve.ts:364:24
+    at ext:deno_http/00_serve.ts:553:29
+    at eventLoopTick (ext:core/01_core.js:168:7)
+
+    - what type of error
+    - fileName:line number:starting character

@@ -1,0 +1,28 @@
+##Routing
+
+forming response based on the request is at the core of al web applications 
+
+##what is routing 
+
+forming paths to functions 
+
+we link methods path combinations with functions 
+-potentially also allowing the use of parts ofthe path as parameter
+
+
+
+##what are middlewares are 
+
+common functionality that is common over all paths and methods 
+example = one might want to log all request one might one to check if the user is looged in 
+functions that are executed before the actual request handler. 
+
+
+
+
+
+## web frameworks 
+inversion of control IoC design principle in which handle request can be give to a framework 
+routing and middleware functionality are at the core of all web applications 
+web framework are specific category of software framework created to develop web software.
+ 

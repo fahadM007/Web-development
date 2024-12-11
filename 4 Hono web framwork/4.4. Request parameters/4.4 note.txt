@@ -1,0 +1,118 @@
+## Request Parameters
+Learning objectives
+You know how to use request parameters with Hono.
+
+The request parameters can be accesed using the req attribute of the context object c.
+
+Query parameters you can access using c .req.query()
+path parameters if you route has dynamic segments (user/:id)
+you can use c.req.param();
+
+headers yo can access them using c.req.header()
+
+req attribute has a method query which takes the nameof the parameter as an argument and returns the value of the parameter return undefined if parameter not present 
+
+
+vanilla deno 
+
+{
+  const handleRequest = (request) => {
+    const url = new URL(request.url)
+    const params = url.searchParams;
+    return new Response(`Name: ${params.get("name")}`);
+  }
+  Deno.serve(handleRequest);
+}
+
+curl_escape() {
+  # Check if the URL contains a query string '?'
+  if [[ "$1" == *\?* ]]; then
+    # If the URL contains '?', surround the URL with quotes
+    curl "$1"
+  else
+    # If no query string, just pass the URL as it is
+    curl $@
+  fi
+}
+
+# Alias the function to replace the default curl command
+alias curl='curl_escape'
+
+checking that a request parameter exist can be don with simple if statement 
+?? nullish coalescing operator 
+
+we use ?? nullish coalescing operator when we want to check for null or underfined which allow the falsy values. 
+
+
+Hono Framework
+├── Hono Class
+│   ├── Methods
+│   │   ├── app.get(path, handler)
+│   │   ├── app.post(path, handler)
+│   │   ├── app.put(path, handler)
+│   │   ├── app.delete(path, handler)
+│   │   ├── app.patch(path, handler)
+│   │   ├── app.options(path, handler)
+│   │   ├── app.head(path, handler)
+│   │   ├── app.all(path, handler)
+│   │   ├── app.route(path, subApp)
+│   │   ├── app.use(path, middleware)
+│   │   ├── app.onError(handler)
+│   │   ├── app.notFound(handler)
+│   │   ├── app.listen(options)
+│   │   └── app.fire()
+│   ├── Properties
+│   │   ├── app.router
+│   │   ├── app.middleware
+│   │   ├── app.env
+│   │   └── app.server
+│   └── Static Methods
+│       ├── Hono.json(body, statusCode)
+│       ├── Hono.text(body, statusCode)
+│       ├── Hono.html(body, statusCode)
+│       ├── Hono.redirect(url, statusCode)
+│       └── Hono.error(body, statusCode)
+
+Request Class (c.req)
+├── Properties
+│   ├── c.req.url
+│   ├── c.req.method
+│   ├── c.req.headers
+│   ├── c.req.body
+│   ├── c.req.params
+│   └── c.req.query
+├── Methods
+│   ├── c.req.param(name)
+│   ├── c.req.header(name)
+│   ├── c.req.query(name)
+│   └── c.req.json()
+
+Response Class (c.res)
+├── Properties
+│   ├── c.res.status
+│   ├── c.res.headers
+│   ├── c.res.body
+│   └── c.res.json
+├── Methods
+│   ├── c.res.header(name, value)
+│   ├── c.res.status(code)
+│   ├── c.res.text(body)
+│   ├── c.res.json(body)
+│   ├── c.res.html(body)
+│   └── c.res.redirect(url, statusCode)
+
+Context Class (c)
+├── Properties
+│   ├── c.req
+│   ├── c.res
+│   ├── c.env
+│   └── c.executionCtx
+├── Methods
+│   ├── c.text(body, statusCode)
+│   ├── c.json(body, statusCode)
+│   ├── c.html(body, statusCode)
+│   ├── c.redirect(url, statusCode)
+│   ├── c.set(name, value)
+│   ├── c.get(name)
+│   ├── c.notFound()
+│   └── c.error(message, statusCode)

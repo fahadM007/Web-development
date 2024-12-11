@@ -1,0 +1,15 @@
+##Paths and Methods
+
+
+##recap
+In order to get the path of the url from the request we convert the url t an object 
+by using the URL objet constructor 
+Then we use the properties in the URL object constructor one of them is pathname 
+
+getting the method 
+This is done by using the request object  parameter which is an instance of the URL class 
+it represents the http sent to the server 
+it contains varouse information which include
+methods used 
+
+we have the request method and the request path

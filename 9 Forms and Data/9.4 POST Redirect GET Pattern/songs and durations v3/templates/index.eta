@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Songs</title>
+</head>
+<body>
+  <h1>Songs</h1>
+
+  <!-- Form for adding a song -->
+  <form method="POST" action="/songs">
+    <label for="name">Song name:</label>
+    <input type="text" id="name" name="name" required>
+    <label for="duration">Duration (seconds):</label>
+    <input type="number" id="duration" name="duration" required>
+    <input type="submit" value="Add Song">
+  </form>
+
+  <!-- Display list of songs -->
+  <% if (it.songs && it.songs.length > 0) { %>
+    <h2>Song List</h2>
+    <table>
+      <tr>
+        <th>Song Name</th>
+        <th>Duration (seconds)</th>
+      </tr>
+      <% it.songs.forEach((song) => { %>
+        <tr>
+          <td><%= song.name %></td>
+          <td><%= song.duration %></td>
+        </tr>
+      <% }) %>
+    </table>
+  <% } else { %>
+    <p>No songs available.</p>
+  <% } %>
+</body>
+</html>

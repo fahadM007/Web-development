@@ -1,0 +1,19 @@
+###
+curl http://localhost:8000/
+
+###
+POST curl http://localhost:8000/
+
+###
+curl http://localhost:8000/it
+
+###
+curl -X POST http://localhost:8000/
+
+###
+curl -X CATS http://localhost:8000/secrets
+
+###
+curl -X WHATS http://localhost:8000/up
+
+

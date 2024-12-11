@@ -1,0 +1,21 @@
+### 1. GET /restaurants
+curl http://localhost:8000/restaurants
+
+### 2. POST /restaurants
+curl -X POST http://localhost:8000/restaurants
+
+### 3. GET /restaurants/:id
+# Example with id = 12364
+curl -X GET http://localhost:8000/restaurants/12364
+
+### 4. GET /restaurants/:id/reviews
+# Example with id = 123
+curl -X GET http://localhost:8000/restaurants/123/reviews
+
+### 5. POST /restaurants/:id/reviews
+# Example with id = 123
+curl -X POST http://localhost:8000/restaurants/123/reviews
+
+### 6. DELETE /restaurants/:id/reviews/:rid
+# Example with id = 123 and rid = 456
+curl -X DELETE http://localhost:8000/restaurants/123/reviews/456

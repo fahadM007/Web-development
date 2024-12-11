@@ -1,0 +1,140 @@
+Hono Framework
+├── HonoClient
+│   ├── Properties
+│   │   ├── clientId
+│   │   ├── username
+│   │   ├── password
+│   │   ├── brokerUrl
+│   │   └── isConnected
+│   ├── Methods
+│   │   ├── connect(options)
+│   │   │   ├── Parameters
+│   │   │   │   ├── options.timeout
+│   │   │   │   └── options.cleanSession
+│   │   │   └── Returns: Promise
+│   │   ├── disconnect()
+│   │   │   └── Returns: Promise
+│   │   ├── publish(topic, payload, options)
+│   │   │   ├── Parameters
+│   │   │   │   ├── topic
+│   │   │   │   ├── payload
+│   │   │   │   └── options.qos
+│   │   │   └── Returns: Promise
+│   │   ├── subscribe(topic, options)
+│   │   │   ├── Parameters
+│   │   │   │   ├── topic
+│   │   │   │   └── options.qos
+│   │   │   └── Returns: Promise
+│   │   ├── send(message)
+│   │   │   └── Parameters
+│   │   │       └── message
+│   │   │   └── Returns: Promise
+│   │   └── receive()
+│   │       └── Returns: Message
+├── HonoServer
+│   ├── Properties
+│   │   ├── port
+│   │   ├── host
+│   │   ├── protocol
+│   │   ├── handlers
+│   │   └── middleware
+│   ├── Methods
+│   │   ├── start()
+│   │   │   └── Returns: Promise
+│   │   ├── stop()
+│   │   │   └── Returns: Promise
+│   │   ├── handleRequest(request, response)
+│   │   │   ├── Parameters
+│   │   │   │   ├── request
+│   │   │   │   └── response
+│   │   │   └── Returns: void
+│   │   ├── registerHandler(route, handler)
+│   │   │   ├── Parameters
+│   │   │   │   ├── route
+│   │   │   │   └── handler
+│   │   │   └── Returns: void
+│   │   └── setMiddleware(middleware)
+│   │       └── Parameters
+│   │           └── middleware
+│   │           └── Returns: void
+├── HonoMessage
+│   ├── Properties
+│   │   ├── payload
+│   │   ├── headers
+│   │   ├── timestamp
+│   │   └── messageId
+│   ├── Methods
+│   │   ├── getPayload()
+│   │   │   └── Returns: Object
+│   │   ├── getHeaders()
+│   │   │   └── Returns: Object
+│   │   ├── setPayload(payload)
+│   │   │   ├── Parameters
+│   │   │   │   └── payload
+│   │   │   └── Returns: void
+│   │   ├── setHeaders(headers)
+│   │   │   ├── Parameters
+│   │   │   │   └── headers
+│   │   │   └── Returns: void
+│   │   └── toString()
+│   │       └── Returns: String
+├── HonoConfiguration
+│   ├── Properties
+│   │   ├── configMap
+│   │   ├── filePath
+│   │   └── isLoaded
+│   ├── Methods
+│   │   ├── getProperty(key)
+│   │   │   ├── Parameters
+│   │   │   │   └── key
+│   │   │   └── Returns: Value
+│   │   ├── setProperty(key, value)
+│   │   │   ├── Parameters
+│   │   │   │   ├── key
+│   │   │   │   └── value
+│   │   │   └── Returns: void
+│   │   ├── loadConfig(filePath)
+│   │   │   ├── Parameters
+│   │   │   │   └── filePath
+│   │   │   └── Returns: Promise
+│   │   └── saveConfig(filePath)
+│   │       ├── Parameters
+│   │       │   └── filePath
+│   │       └── Returns: Promise
+├── HonoDevice
+│   ├── Properties
+│   │   ├── deviceId
+│   │   ├── status
+│   │   ├── metadata
+│   │   └── lastSeen
+│   ├── Methods
+│   │   ├── register()
+│   │   │   └── Returns: Promise
+│   │   ├── unregister()
+│   │   │   └── Returns: Promise
+│   │   ├── updateStatus(newStatus)
+│   │   │   ├── Parameters
+│   │   │   │   └── newStatus
+│   │   │   └── Returns: Promise
+│   │   └── getStatus()
+│   │       └── Returns: Status
+└── HonoUtils
+    ├── Methods
+    │   ├── log(message, level)
+    │   │   ├── Parameters
+    │   │   │   ├── message
+    │   │   │   └── level
+    │   │   └── Returns: void
+    │   ├── validate(data, schema)
+    │   │   ├── Parameters
+    │   │   │   ├── data
+    │   │   │   └── schema
+    │   │   └── Returns: Boolean
+    │   ├── formatMessage(message)
+    │   │   ├── Parameters
+    │   │   │   └── message
+    │   │   └── Returns: String
+    │   └── parseMessage(rawMessage)
+    │       ├── Parameters
+    │       │   └── rawMessage
+    │       └── Returns: HonoMessage

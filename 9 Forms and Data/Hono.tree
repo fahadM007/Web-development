@@ -1,0 +1,67 @@
+Here’s a visual representation of the **tree structure** of Hono's main methods and properties, organized for clarity:
+
+```plaintext
+Hono
+├── Properties
+│   ├── router (Manages routing tree)
+│   ├── strict (Boolean to enforce strict routing)
+│   └── middleware (Array of registered middleware)
+│
+├── Methods
+│   ├── HTTP Methods (Define routes)
+│   │   ├── .get(path, handler)
+│   │   ├── .post(path, handler)
+│   │   ├── .put(path, handler)
+│   │   ├── .patch(path, handler)
+│   │   ├── .delete(path, handler)
+│   │   ├── .options(path, handler)
+│   │   └── .head(path, handler)
+│   │
+│   ├── Grouping and Sub-Routing
+│   │   ├── .route(path, (subApp) => { ... })
+│   │   └── .basePath (String: Prefix for all routes in an app)
+│   │
+│   ├── Middleware
+│   │   ├── .use(path?, middleware) (Attach middleware to routes or globally)
+│   │   ├── .onError((err, context) => { ... }) (Error handling middleware)
+│   │   └── .notFound((context) => { ... }) (Handler for unmatched routes)
+│   │
+│   ├── Starting Server
+│   │   ├── .listen(port, options) (Start an HTTP server)
+│   │   └── .fetch(request) (Handle a request—useful in Cloudflare Workers, Deno)
+│   │
+│   ├── Utility
+│       ├── .clone() (Create a copy of the app)
+│       └── .showRoutes() (List all defined routes in the app)
+│
+├── Context (Accessed via handlers as `c`)
+│   ├── c.req (HonoRequest)
+│   │   ├── .url (Full URL of the request)
+│   │   ├── .path (Path of the request)
+│   │   ├── .query() (Parse query parameters)
+│   │   ├── .header(name) (Get a header value)
+│   │   ├── .parseBody() (Parse the request body)
+│   │   └── .method (Request method: GET, POST, etc.)
+│   │
+│   ├── c.res (HonoResponse)
+│   │   ├── .status(code) (Set response status)
+│   │   ├── .header(name, value) (Set response headers)
+│   │   ├── .text(string) (Send plain text response)
+│   │   ├── .json(object) (Send JSON response)
+│   │   ├── .html(string) (Send HTML response)
+│   │   └── .redirect(url, status?) (Redirect response)
+│   │
+│   ├── Other Context Methods
+│       ├── .get(key) / .set(key, value) (Attach/retrieve data to/from context)
+│       └── .throw(status, message?) (Throw an error to handle later)
+```
+
+---
+
+### **Explanation of the Structure**
+
+- **Hono** is the main app instance. Its properties and methods form the framework's core functionality.
+- **Context (`c`)** is the handler-specific object passed to route functions, allowing access to request and response details.
+- **Router**: Hono uses a lightweight routing tree internally, which you can explore using `.showRoutes()` for debugging.
+
+Would you like an illustration or a more specific breakdown of a part of this tree?

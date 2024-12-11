@@ -1,0 +1,86 @@
+Introduction to Hono
+
+Learning objectives
+You know what Hono is.
+You can create a web application that responds to requests using Hono.
+
+
+decomposing the application 
+
+{
+  import { Hono } from "https://deno.land/x/hono@v3.12.11/mod.ts";
+
+const app = new Hono();
+
+app.get("/", (c) => c.text("Hello World!"));
+
+Deno.serve(app.fetch);
+}
+
+#first line 
+import { Hono } from "https://deno.land/x/hono@v3.12.11/mod.ts";
+
+importing the Hono from the url 
+
+#second line 
+
+const app = new Hono(); create an instance Hono which is assigned to app 
+
+#third 
+creating rout for the application 
+app.get("/", (c) => c.text("Hello World!"));
+
+hono handles request by calling a function provding an object called context as parameter 
+
+context contains information about the request and response 
+and methods for interacting with them 
+
+Context Object (c)
+├── Properties
+│   ├── request
+│   │   ├── method  // HTTP method (GET, POST, etc.)
+│   │   ├── url     // Request URL
+│   │   ├── headers // Request headers
+│   │   ├── body    // Request body (for POST/PUT requests)
+│   │   └── params  // URL parameters (e.g., from dynamic routes)
+│   ├── response
+│   │   ├── status  // HTTP status code
+│   │   └── headers // Response headers
+│   └── locals      // Local variables scoped to the request
+├── Methods
+│   ├── text(body, statusCode)
+│   │   ├── Parameters
+│   │   │   ├── body: String // The response body
+│   │   │   └── statusCode: Number // Optional HTTP status code (default: 200)
+│   │   └── Returns: Response // Sends a plain text response
+│   ├── json(data, statusCode)
+│   │   ├── Parameters
+│   │   │   ├── data: Object // The response data as JSON
+│   │   │   └── statusCode: Number // Optional HTTP status code (default: 200)
+│   │   └── Returns: Response // Sends a JSON response
+│   ├── html(body, statusCode)
+│   │   ├── Parameters
+│   │   │   ├── body: String // The response body as HTML
+│   │   │   └── statusCode: Number // Optional HTTP status code (default: 200)
+│   │   └── Returns: Response // Sends an HTML response
+│   ├── redirect(url, statusCode)
+│   │   ├── Parameters
+│   │   │   ├── url: String // URL to redirect to
+│   │   │   └── statusCode: Number // HTTP status code (default: 302)
+│   │   └── Returns: Response // Sends a redirect response
+│   └── send(body, statusCode)
+│       ├── Parameters
+│       │   ├── body: String | Object // The response body (string or JSON object)
+│       │   └── statusCode: Number // Optional HTTP status code (default: 200)
+│       └── Returns: Response // Sends the response
+
+why have two files 
+
+app.js contain application logic including routing definitions middleware and any configurations focus on the application behaves. 
+
+app-run.js file responsible for bootstrapping the application it handle the server initialization such as setting the port starting the listener and logging messages 
+
+Reusability
+import it in different context 
+run tests using test framework 
+run the app in diffrenet enviroments devlopment and production

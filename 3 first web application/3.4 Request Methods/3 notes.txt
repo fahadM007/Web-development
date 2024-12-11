@@ -1,0 +1,88 @@
+###URLs and Paths
+
+Learning objectives
+You know what paths are and can handle requests to paths.
+
+#Request URL 
+each request is made to a specific url which also has a path.
+
+deno run --allow-net --watch app.js
+
+-root path of the server = http://localhost:8000
+
+-path to a server called hello = http:/localhost:8000/hello
+
+###Requested paths
+URL class = its built in object to work with URL 
+-- makes life easy getting different parts of the URL like path domain or protocol. 
+-- we use the properties that the URL object provides 
+
+Examples 
+http://localhost:8000/hello
+
+http://: The protocol.
+
+localhost: This is the domain. "localhost" refers to your local machine (your own computer)
+
+8000: This is the port number. It's like a specific "door" on your computer that the web server is using to handle this request.
+
+/hello: is the path 
+
+{
+// create a variable that holds the full URL 
+const url = "http://localhost:8000/hello";
+
+//create a url object from the url string 
+const urlObject = new URL(url);
+
+//URL object has a property called pathname
+
+console.log(urlObject.pathname);
+
+}
+breakdown
+`const url = "http://localhost:8000/hello";`
+-Here, we're storing the full URL as a string in the variable url.
+
+`const urlObject = new URL(url);`
+-We create a URL object from the string url. 
+-This URL object gives us access to different parts of the URL like the domain, path, protocol, etc.
+
+
+`urlObject.pathname`
+This is a property of the URL object that returns just the path. In our case, it will return /hello.
+
+other properties of the URL object 
+-protocol
+-pathname
+-hostname
+-port
+-search
+-hash
+
+{
+    const url = "http://localhost:8000/hello?id=123#section";
+
+const urlObject = new URL(url);
+
+console.log(urlObject.protocol);  // "http:"
+console.log(urlObject.hostname);  // "localhost"
+console.log(urlObject.port);      // "8000"
+console.log(urlObject.pathname);  // "/hello"
+console.log(urlObject.search);    // "?id=123"
+console.log(urlObject.hash);      // "#section"
+
+}
+
+step 1 we use the URL-class to create an URL object out of the url variable representing the Requested URL.
+step 2 
+
+what is the `new Response`
+its a constructor used to create a response object.
+which represents the response that your server will send back 
+
+breakdown 
+new Response = creates the response object 
+return new Response(url.pathname = wha you want to send back as the body of the response)
+
+###Path-specific responses

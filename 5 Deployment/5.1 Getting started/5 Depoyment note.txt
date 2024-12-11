@@ -1,0 +1,39 @@
+Learning objectives
+You know what Deno Deploy is and know how to create a Deno Deploy project.
+
+serverless platform are cloude services that enaable devlopers to run applications without managaing the underlying server infrastructure . 
+
+AWS Lambda:
+Azure Functions:
+Google Cloud Functions
+IBM Cloud Functions:
+Firebase Cloud Functions
+Cloudflare Workers
+
+we need to install deployctl = deploy command tool
+
+generating a deploy token 
+
+
+deployctl ctl 
+
+
+lachi.dong@Mac-mini wsd-project % deployctl deploy --token=ddp_dxjCiq41yKZkIUN70l3mYsxmVV1PjL1Gly2c --project=epic-moth-fah app-run.js
+✔ Created new project 'epic-moth-fah'.
+  ℹ You can configure the name, env vars, custom domains and more in https://dash.deno.com/projects/epic-moth-fah/settings
+  ℹ The project does not have a deployment yet. Automatically pushing initial deployment to production (use --prod for further updates).
+✔ Entrypoint: /Users/lachi.dong/Desktop/centria/web development/5 Deployment/5.2 Deploying an Application/wsd-project/app-run.js
+ℹ Uploading all files from the current dir (/Users/lachi.dong/Desktop/centria/web development/5 Deployment/5.2 Deploying an Application/wsd-project)
+✔ Found 2 assets.
+✔ Uploaded 2 new assets.
+✔ Production deployment complete.
+✔ Created config file 'deno.json'.
+
+View at:production url 
+ - https://epic-moth-fah.deno.dev
+ - https://epic-moth-fah-gap2xxc0h1dw.deno.dev
+lachi.dong@Mac-mini wsd-project % 
+
+
+- https://epic-moth-fah.deno.dev
+ - https://epic-moth-fah-e9hft4tq4xse.deno.dev

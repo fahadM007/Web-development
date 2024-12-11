@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h>Songs</h>
+  <form method="POST" action="/songs">
+     <label for="name" >Song name</label>
+     <input type="text" id="name" name="name">
+     <label for="duration" >Song duration</label>
+     <input type="number" id="duration" name="duration">
+     <input type="submit" value="submit info">
+  </form>
+  <table>
+    <tr>
+      <th>Song</th>
+      <th>Duration (seconds)</th>
+    </tr>
+     <!-- songs from the server should be listed here -->
+     <tr>
+          <td><%= it.name %></td>
+          <td><%= it.duration %></td>
+      </tr>
+
+  </table>
+</body>
+</html>

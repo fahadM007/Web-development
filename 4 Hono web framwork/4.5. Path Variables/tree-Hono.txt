@@ -1,0 +1,101 @@
+Context Object
+├── req                   // HTTP request object
+│   ├── method           // HTTP method (GET, POST, etc.)
+│   ├── url              // Full URL of the request
+│   ├── headers          // Request headers
+│   ├── body             // Request body (parsed according to content type)
+│   ├── query            // Query parameters (as an object)
+│   ├── params           // Route parameters (from the URL)
+│   │   └── { id: '123' } // Example of route parameter
+│   ├── ip               // IP address of the client
+│   └── protocol         // Protocol (http or https)
+├── res                   // HTTP response object
+│   ├── status           // Response status code
+│   ├── headers          // Response headers
+│   ├── body             // Response body
+│   ├── json()          // Method to send JSON responses
+│   └── text()           // Method to send plain text responses
+├── params                // All route parameters
+│   └── { id: '123' }    // Example of route parameters
+├── query                 // Query parameters as an object
+│   └── { name: 'Alice' } // Example of query parameters
+├── data                  // Temporary data storage (middleware)
+│   └── { key: 'value' }  // Example of middleware data
+├── next()                // Method to pass control to the next middleware or handler
+└── ...                   // Additional properties/methods as needed
+Here’s a detailed breakdown of the **Context Object** in the Hono framework, including a list of properties and methods:
+
+### Context Object Structure
+
+```
+Context Object
+├── req                   // HTTP request object
+│   ├── method           // HTTP method (GET, POST, etc.)
+│   ├── url              // Full URL of the request
+│   ├── headers          // Request headers
+│   ├── body             // Request body (parsed according to content type)
+│   ├── query            // Query parameters (as an object)
+│   ├── params           // Route parameters (from the URL)
+│   │   └── { id: '123' } // Example of route parameter
+│   ├── ip               // IP address of the client
+│   └── protocol         // Protocol (http or https)
+├── res                   // HTTP response object
+│   ├── status           // Response status code
+│   ├── headers          // Response headers
+│   ├── body             // Response body
+│   ├── json()          // Method to send JSON responses
+│   └── text()           // Method to send plain text responses
+├── params                // All route parameters (duplicate of req.params)
+│   └── { id: '123' }    // Example of route parameters
+├── query                 // Query parameters as an object
+│   └── { name: 'Alice' } // Example of query parameters
+├── data                  // Temporary data storage (middleware)
+│   └── { key: 'value' }  // Example of middleware data
+├── next()                // Method to pass control to the next middleware or handler
+├── set(key, value)      // Method to set data in the context (accessible in next middleware)
+├── get(key)             // Method to retrieve data from the context
+└── ...                   // Additional properties/methods as needed
+```
+
+### List of Properties and Methods
+
+#### Properties
+
+- **`req`**: 
+  - **`method`**: The HTTP method of the request (e.g., GET, POST).
+  - **`url`**: The full URL of the request.
+  - **`headers`**: An object representing the request headers.
+  - **`body`**: The parsed body of the request (varies based on content type).
+  - **`query`**: An object of query parameters parsed from the URL.
+  - **`params`**: An object of route parameters (derived from the URL).
+  - **`ip`**: The IP address of the client making the request.
+  - **`protocol`**: The protocol used for the request (HTTP or HTTPS).
+
+- **`res`**:
+  - **`status`**: The HTTP status code to send in the response.
+  - **`headers`**: An object to set response headers.
+  - **`body`**: The body of the response (can be set using methods).
+  - **`json()`**: Method to send a JSON response.
+  - **`text()`**: Method to send a plain text response.
+
+- **`params`**: 
+  - An object that holds all route parameters (same as `req.params`).
+
+- **`query`**: 
+  - An object that holds all query parameters.
+
+- **`data`**: 
+  - A temporary storage object for middleware data.
+
+#### Methods
+
+- **`next()`**: Passes control to the next middleware or route handler.
+- **`set(key, value)`**: Sets a value in the context for later retrieval.
+- **`get(key)`**: Retrieves a value from the context using a key.
+
+### Additional Notes
+
+- The context object is essential for managing the request-response lifecycle in Hono and provides a structured way to access and manipulate request and response data.
+- The properties and methods may vary based on the specific implementation or version of Hono, so always refer to the official documentation for the most accurate details.
+
+If you have any more questions or need further clarification on any specific part, feel free to ask!
