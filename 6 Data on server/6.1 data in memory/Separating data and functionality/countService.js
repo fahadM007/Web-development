@@ -1,15 +1,12 @@
-let count =  0;
+let count = 0;  //data stored in a variable 
 
-// define a function that send the count in the storage memory 
-
-const getCount = () => count;
-
-//write a function that increment the count 
+const getCount = () => {
+  return count;
+}
 
 const incrementCount = () => {
   count++;
- 
 };
 
-export {getCount,incrementCount};
 
+export { getCount, incrementCount };
