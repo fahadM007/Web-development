@@ -7,15 +7,11 @@ const eta = new Eta({
 
 const app = new Hono();
 
-const data = {
-  count: 0,
-  secret: "Illuminati",
-  heading: "Hello world!",
-};
+let click = 0;
 
 app.get('/', (c) => {
-  data.count++;
-  return c.html(eta.render("index.eta",data));
+  click = click + 1;
+  return c.html(eta.render("index.eta",{count:click}));
 })
 
 
