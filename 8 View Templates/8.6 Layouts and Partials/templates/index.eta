@@ -1,0 +1,4 @@
+<% layout("/layouts/layout.eta") %>
+
+<h2>Welcome to Hono</h2>
+<p>This is a sample page rendered using Eta as the template engine with Hono.</p>
