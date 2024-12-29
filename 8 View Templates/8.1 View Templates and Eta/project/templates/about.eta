@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title><%= it.title %></title>
+  <title>About Us</title>
 </head>
 <body>
-  <h1><%= it.title %></h1>
+<h1><%= it.title %></h1>
   <nav>
     <ul>
       <li><a href="/">Index</a></li>
@@ -12,9 +12,7 @@
       <li><a href="/contact">Contact us</a></li>
     </ul>
   </nav>
-
-  <h1>Welcome to the <%= it.title %> Page</h1>
-  <p>This is the homepage of our website.</p>
+  <h1>About Us</h1>
+  <p>This page contains information about our organization.</p>
 </body>
-
 </html>

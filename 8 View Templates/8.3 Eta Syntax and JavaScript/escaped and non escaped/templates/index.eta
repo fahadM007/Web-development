@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hello there!</title>
+  </head>
+  <body>
+    <h1>The heading: <%= it.heading %>!</h1>
+    <p>The secret: <%= it.secret %>!</p>
+    <p>The count: <%= it.count %>!</p>
+    <p>Escaped HTML: <%= it.variable %>!</p>
+    <p>Non-escaped HTML: <%~ it.variable %>!</p>
+  </body>
+</html>
