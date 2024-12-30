@@ -64,4 +64,3 @@ Hono
 - **Context (`c`)** is the handler-specific object passed to route functions, allowing access to request and response details.
 - **Router**: Hono uses a lightweight routing tree internally, which you can explore using `.showRoutes()` for debugging.
 
-Would you like an illustration or a more specific breakdown of a part of this tree?
