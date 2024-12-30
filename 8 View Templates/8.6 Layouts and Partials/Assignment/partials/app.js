@@ -5,11 +5,8 @@ const eta = new Eta({ views: `${Deno.cwd()}/templates/` });
 
 const app = new Hono();
 
-const data = {
-  title: "My Title",
-  heading: "My Heading",
-}
 
-app.get("/", (c) => c.html(eta.render("index.eta",data)));
+app.get("/", (c) => c.html(eta.render("index.eta")));
+
 
 Deno.serve(app.fetch);

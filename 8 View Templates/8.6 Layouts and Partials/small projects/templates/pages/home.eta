@@ -1,0 +1,14 @@
+<% layout("/layouts/layout.eta") %>
+
+<h2>Welcome to StellarFusion Technologies</h2>
+
+
+<h3>About Us</h3>
+<p>We are a forward-thinking company dedicated to transforming space travel through nuclear propulsion systems see our about page.</p>
+
+
+<h3>What We Offer</h3>
+<p>At StellarFusion Technologies, we are passionate about space exploration and the future of nuclear propulsion. On this page, you'll discover information about our company's mission, cutting-edge technologies, and the exciting potential of space travel. We are working to make deep space exploration faster, more efficient, and sustainable using the power of nuclear energy.</p>
+
+<h3>Stay Connected</h3>
+<p>Feel free to explore the rest of our website and learn more about how we are shaping the future of space exploration. You can also visit our <a href="/about">About Us</a> page for more details about our team, technology, and mission, or reach out to us on the <a href="/contact">Contact Us</a> page for further inquiries.</p>

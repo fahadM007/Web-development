@@ -1,0 +1,15 @@
+<% layout("/layouts/layout.eta") %>
+
+<h2>Contact Us</h2>
+<p>Reach out via email or phone.</p>
+<h1>Team</h1>
+<ul>
+<% it.contacts.forEach((contact) => {%>
+  <li><%= contact.title %> </li>
+  <li><%= contact.name %> </li>
+  <li><%= contact.email %> </li>
+  <li><%= contact.phone %> </li>
+  <br>
+<%});%>
+
+</ul>

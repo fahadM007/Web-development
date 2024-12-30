@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%= it.title %></title>
+</head>
+<body>
+  <%~ include("/partials/nav.eta") %>
+  <%~ it.body %>
+  
+  <%~ include ("/partials/footer.eta")%>
+</body>
+</html>
