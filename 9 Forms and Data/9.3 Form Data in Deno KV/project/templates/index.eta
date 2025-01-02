@@ -13,7 +13,10 @@
   <input type="text" id="address" name="address" /> <br/>
   <input type="submit" value="Submit form"/>
   </form>
-  <p><%=it.name%></p>
-  <p><%=it.address%></p>
+  <%it%>
+   <h2>Addresses:</h2>
+  <% for (let address of it.addresses) { %>
+    <p>Name: <%= address.name %>, Address: <%= address.address %></p>
+  <% } %>
 </body>
 </html>

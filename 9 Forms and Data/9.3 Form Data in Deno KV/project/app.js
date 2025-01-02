@@ -6,19 +6,19 @@ const eta = new Eta({views:`${Deno.cwd()}/templates/`})
 
 const app = new Hono();
 
-let data = {
-}
 
-app.get("/", (c) => {
-  return c.html(eta.render("index.eta",addressServices.getData));
+app.get("/", async (c) => {
+  const addresses = await addressServices.getData();  // Await the result
+  return await c.html(eta.render("index.eta", { addresses }));  // Pass it correctly to the template
 });
 
 
-app.post("/addresses",async (c) => {
+app.post("/addresses", async (c) => {
   const body = await c.req.parseBody();
   console.log(body);
-  addressServices.setData(body);
-  return c.html(eta.render("index.eta",data));
+  await addressServices.setData(body);  // Save the address data
+  const addresses = await addressServices.getData();  // Fetch updated addresses
+  return await c.html(eta.render("index.eta", { addresses }));  // Pass the updated addresses to the template
 });
 
 
