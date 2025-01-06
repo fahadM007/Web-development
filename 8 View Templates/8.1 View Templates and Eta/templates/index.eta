@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>The heading <%=it.heading%>!</h1>
+
+  <p>The content!</p>
+  <p>The count: <%=it.count%>!</p>
+  <% if (it.count === 2) {%>
+    <p>The secret: <%=it.secret%>!</p>
+  <%}%>
+  
+  <p>Escaped HTML: <%= it.variable %>!</p>
+  <p>Non-escaped HTML: <%~ it.variable %></p>
+  <h1>List of vegetables</h1>
+  <ul>
+  <% it.vegetables.forEach((veges) => { %>
+   <li><%= veges  %> </li> 
+  <%})%>
+  </ul>
+  
+  <p>Email address: <%= it.email ?? "Unknown" %>!</p>
+ <h2>The people of our time</h2>
+ <ul>
+  <% it.people.forEach((person) => { %>
+    <li><%= person.name %></li>
+  <%})%>
+ </ul>
+ <ol>
+<% for (const todo of it.todos) {%>
+  <li><%= todo.name %> (<%= todo.done%>)</li>
+<% } %>
+ </ol>
+
+ <table  border="1px solid red">
+ <tr>
+        <th>#</th>
+        <th>Finnish</th>
+        <th>English</th>
+  </tr>
+ <% it.translations.forEach((translation,index) => { %>
+   <tr>
+     <td><%= index + 1%></td>
+     <td><%= translation.fi%></td>
+     <td><%= translation.en%></td>
+   <tr>
+ <%});%>
+
+ </table>
+ <p>Game status</p>
+<table>
+<% for (const cell of it.board) {%>
+  <tr>
+    <td><%= cell %></td>
+  </tr>
+<%}%>
+</table>
+
+
+</body>
+</html>
