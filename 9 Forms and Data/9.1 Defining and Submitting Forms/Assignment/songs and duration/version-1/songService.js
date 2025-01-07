@@ -1,5 +1,6 @@
 let data = {
-  songs : []
+  songs : [{ name: "Juma", duration: "300000" },
+    { name: "jesi", duration: "4000" },]
 }
 
 

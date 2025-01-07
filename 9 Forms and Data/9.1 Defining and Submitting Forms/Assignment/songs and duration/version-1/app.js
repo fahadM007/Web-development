@@ -8,13 +8,13 @@ const app = new Hono();
 
 
 app.get("/", (c) => {
-  return c.html(eta.render("index.eta",songsService.listSongs()));
+  return c.html(eta.render("index.eta", songsService.listSongs()));
 });
 
 app.post("/songs", async (c) => {
   const body = await c.req.parseBody();
   songsService.setSongs(body)
- 
+
   return c.redirect("/");
 });
 
