@@ -1,12 +1,13 @@
-import { Eta } from "https://deno.land/x/eta@v3.4.0/src/index.ts";
+
 import { Hono } from "https://deno.land/x/hono@v3.12.11/mod.ts";
 
-const eta = new Eta({ views: `${Deno.cwd()}/templates/` });
+
+
+import * as todoController from "./todoControllers.js";
 
 const app = new Hono();
 
-app.get("/todos", (c) => {
-  return c.html(eta.render("todos.eta"))
-});
+app.get("/todos", todoController.showForm);
 
 export default app;
+
