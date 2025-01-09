@@ -11,8 +11,8 @@ const showForm = (c) => {
 // controller function that handles the post request
 const createTodo = async (c) => {
   const body = await c.req.parseBody();
-  console.log(body);
-  await todoService.createTodo();
+  //console.log(body);
+  await todoService.createTodo(body);
   return c.redirect("/todos");
 };
 

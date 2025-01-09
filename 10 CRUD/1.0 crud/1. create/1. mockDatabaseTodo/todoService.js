@@ -12,7 +12,7 @@ const database = {
 console.log(database);
 // function that createTodo to the database 
 
-const createTodo = async (body) => {
+const createTodo = async (todo) => {
    // Generate a unique ID for the new todo
    const todoId = crypto.randomUUID();
    // Create a composite key for the new todo using ["todo", id]
@@ -21,7 +21,7 @@ const createTodo = async (body) => {
    //create a new todo object 
    const newTodo = {
     id: todoId,
-    todo: body
+    todo: todo,
   };
 
   // Add the new todo to the mock database using the composite key
