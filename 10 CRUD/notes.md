@@ -34,15 +34,43 @@ todoService.js the service.
 
 we need to create a form that will allows us to create a todo resource.
 
-To create a todo item, 
+# To create a todo item, 
 * we need a form,
 * a route 
 * the controller functionality, and the 
 * service functionality
 
 
-we have to Showing a form for adding todos
+## Showing a form for adding todos
 
-> we need to have the form and the route that responds with the form 
+*  we need to have the form and the route that responds with the form 
 
-# Refactoring to controller
+##  Showing the form on requests
+
+* creates a route that responds with the a rendered todos.eta
+
+## Creating a todo on POST request
+
+* A todo entry should be created when the form is submitted
+to the database. 
+
+* To create a todo entry,` we need a route that responds to POST requests to /todos.`
+
+* a controller function that handles the POST request.
+
+* service function that stores the todo entry to the database.
+
+# Functionality for storing submitted data to database
+
+```js
+const database = {
+  '["todos", "f47ac10b-58cc-4372-a567-0e02b2c3d479"]': { 
+    id: "f47ac10b-58cc-4372-a567-0e02b2c3d479", 
+    todo: "Buy groceries" 
+  },
+  '["todos", "c56a4180-65aa-42ec-a945-5fd21dec0538"]': { 
+    id: "c56a4180-65aa-42ec-a945-5fd21dec0538", 
+    todo: "Do homework" 
+  }
+};
+```
