@@ -5,7 +5,7 @@ import * as todoController from "./todoControllers.js";
 const app = new Hono();
 
 //  route that that render the todo form
-app.get("/todos", todoController.showForm);
+app.get("/main", todoController.showForm);
 
 // route that add a todo on a post request
 app.post("/todos", todoController.createTodo);

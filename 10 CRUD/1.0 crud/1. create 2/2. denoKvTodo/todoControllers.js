@@ -8,12 +8,28 @@ const showForm = (c) => {
   return c.html(eta.render("todos.eta"));
 };
 
+function createTodo (c) {
+  const body =  c.req.parseBody();
+  console.log(body);
+ todoService.createTodo(body);
+  return c.redirect("/main");
+}
+
+const createTodo = function(c)
+{
+  const body =  c.req.parseBody();
+  console.log(body);
+   todoService.createTodo(body);
+  return c.redirect("/main");
+}
+
+
 // controller function that handles the post request
 const createTodo = async (c) => {
   const body = await c.req.parseBody();
   console.log(body);
   await todoService.createTodo(body);
-  return c.redirect("/todos");
+  return c.redirect("/main");
 };
 
 export { createTodo, showForm };
