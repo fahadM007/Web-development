@@ -74,3 +74,38 @@ const database = {
   }
 };
 ```
+
+# READ
+
+WE learning to read resources from the database 
+add functionality to read todos 
+
+
+## listing Todos
+
+`two functionalties one is to reads the todos from the database`
+`Then a functionality to render the todos`
+
+
+# Reading a list from Deno KV
+
+* to read from the database we use a list method from denoKv 
+* The method excepts an `object` as a parameter which has an attribute `prefix`
+
+* The attribute `prefix` is given a list of keys that indicate the key or combination with which the search for entries. 
+
+In this case we look for entries associated with todos 
+
+> the methods returns an asynchronous list iterator with objects with the keys and values of the items that match the prefix
+
+## Linking the service to the controller
+
+Next, we need to link the service to the controller. In todoController.js, we already import the functionality exported by todoService.js, so we need to essentially find a place where we plug in the listTodos functionality.
+
+One meaningful location would be the page with the form for creating a todo, which is handled by the showForm function of todoController.js. Let's use that -- the key change is passing data to the view template in the showForm function. After the change, the function looks as follows.
+
+## Listing the todos in the view template
+
+With the above change, the view template will have access to existing todos through the it.todos variable. Let's add the functionality for listing the todos in the view template.
+
+##  Reading a single todo

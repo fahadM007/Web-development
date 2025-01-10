@@ -9,5 +9,11 @@
       <input type="text" id="todo" name="todo" /><br/>
       <input type="submit" value="Add" />
     </form>
+    <p>Existing todos:</p>
+    <ul>
+    <% it.todos.forEach((todo) => { %>
+      <li><%= todo.todo %></li>
+    <% }); %>
+    </ul>
   </body>
 </html>
