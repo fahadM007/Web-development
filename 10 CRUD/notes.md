@@ -109,3 +109,18 @@ One meaningful location would be the page with the form for creating a todo, whi
 With the above change, the view template will have access to existing todos through the it.todos variable. Let's add the functionality for listing the todos in the view template.
 
 ##  Reading a single todo
+
+reading in crud is also associated with with reading a single entry 
+
+> we add a functionality for reading a single entry 
+
+### steps needed to add a single entry 
+
+* add individual links too the page for individuals tools.
+* a new route to the route that corresponds to the link 
+* new function to the controller 
+* a new function to the service
+* new view templates 
+
+## Adding links to the view template
+
