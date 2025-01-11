@@ -18,4 +18,14 @@ const createTodo = async (c) => {
   return c.redirect("/todos");
 };
 
-export { createTodo, showForm };
+//controller function that shows individual todos 
+
+const showTodo = async (c) => {
+  const id = c.req.param("id");
+  
+  return c.html(
+    eta.render("todo.eta", { todo: await todoService.getTodo(id) }),
+  );
+}
+
+export { createTodo, showForm, showTodo };

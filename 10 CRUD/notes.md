@@ -124,3 +124,25 @@ reading in crud is also associated with with reading a single entry
 
 ## Adding links to the view template
 
+To add links, we use the identifier that we added to the todo items when creating them. Because of this, each todo comes a unique id attribute, which we can use to link to a page with information on the specific todo.
+
+To create the links, we modify the view template todos.eta so that each list item contains a link to a todo-specific page. We can use the todo.id attribute to create the link -- let's assume that the path for individual todos will be identified using a path variable and that individual todo's will be mapped to /todos/:id.
+
+The modified view template looks as follows.
+
+# route requests to the individual todo pages
+
+This is to be expected -- we haven't yet added the route to the router, nor the functionality to the controller, nor the functionality to the service. Let's add them next
+
+Things to be done to add a new route to the router 
+
+* add new route to the router 
+* To route requests to the individual todo pages, we need to add a new route to the router. Let's add the route to the app.js file. The route should be a GET request to the path /todos/:id, and it should be handled by the showTodo function of the todoController.js.
+
+
+# Responding from the controller
+
+Let's add first basic functionality to the controller that just responds with a text that tells what the id of the of the todo that was asked for is.
+
+Let's create the showTodo function to todoController.js. The showTodo function needs to read the path variable id from the request, and respond with the id in text format. To read the path variable, we can use the c.req.param method, which takes the path variable identifier -- in our case id -- as a parameter.
+

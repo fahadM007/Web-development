@@ -26,5 +26,21 @@ const listTodos = async () => {
   return todos;
 };
 
+const getTodo = async (id) => 
+{
+  const kv = await Deno.openKv();
+  const todo = await kv.get(["todos", id]);
+  return todo?.value ?? {};
+  /*
+  if (todo && todo.value !== undefined && todo.value !== null) {
+  return todo.value;
+} else {
+  return {};
+}
 
-export { createTodo, listTodos }
+  
+  */ 
+}
+
+
+export { createTodo, listTodos, getTodo }
