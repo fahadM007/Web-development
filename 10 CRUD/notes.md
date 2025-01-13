@@ -155,3 +155,17 @@ update in CRUD refers to the ability of being able to modify existing data.
 We already have a way to view individual todo items, so we can use that as a starting point for our update functionality. Let's adjust the todo.eta so that instead of showing a todo in a paragraph, it shows a form with a text input field and a submit button, where the text input field has already been populated with the todo text. The form is submitted as a POST request to the /todos/:id endpoint, which we use to identify specific todos.
 
 ## Adding a route
+
+Now that we have the function updateTodo in the todo service, and it has been exported from there, we can use it in the controller. Let's update the updateTodo function in the controller so that it reads the todo id from the path variable, reads the todo from the request, and then calls the updateTodo function from the service to update the todo.
+
+Finally, let's use the POST/Redirect/GET pattern to redirect the user back to the todo page. The updated updateTodo function is as follows.
+
+# Delete
+
+So far, we have a working application that allows us to create, read, and update todos. The last thing we need to do is to implement the functionality for deleting todos.
+
+To allow the deletion of todos, we need to do similar work than earlier, which cuts across all the layers of our application. This involves: (1) views, (2) routes, (3) controllers, and (4) services. More specifically, we need to add a way to invoke deletion through the view, a route that handles the deletion and invokes the controller, a controller that invokes the service, and a service that deletes the todo from the database.
+
+## Deleting in view
+
+Let's start with the deletion functionality. Let's associate each todo item in the todos.eta with a button that allows deleting the todo. To achieve this, we create a form for each todo, and add a submit button to the form. Clicking the button submits the form to an address, which will have a route associated with it.

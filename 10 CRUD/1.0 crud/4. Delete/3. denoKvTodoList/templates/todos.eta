@@ -13,11 +13,10 @@
     <p>Existing todos:</p>
     <ul>
     <% it.todos.forEach((todo) => { %>
-      <li><a href="/todos/<%= todo.id %>"><%= todo.todo %></a></li>
-      <form method="POST" action="/todos/<%=todo.id%>/delete">
-      
-      <input type="submit" value="delete"/>
-      </form>
+      <li><a href="/todos/<%= todo.id %>"><%= todo.todo %></a></li> <br>
+      <form method="POST" action="/todos/<%= todo.id %>/delete">
+          <input type="submit" value="Delete" />
+        </form>
     <% }); %>
     </ul>
   </body>
