@@ -13,4 +13,8 @@ app.get("/todos/:id", todoController.showTodo);
 // route that add a todo on a post request
 app.post("/todos", todoController.createTodo);
 
+//route that updates the todo on a post request
+
+app.post("/todos/:id",todoController.updateTodo);
+
 export default app;

@@ -8,7 +8,7 @@ const createTodo = async (todo) => {
   await kv.set(["todos",todo.id], todo);
 
   for await (const entry of kv.list({ prefix: ["todos"] })) {
-    console.log(entry);
+    
   }
 
 }
@@ -42,5 +42,13 @@ const getTodo = async (id) =>
   */ 
 }
 
+//writing function to update the todo 
 
-export { createTodo, listTodos, getTodo }
+const updateTodo = async (id,todo) => {
+  //Assign the id of the todo to the object of the todo 
+  todo.id = id; //the identifier is included in the todo object 
+  const kv = await Deno.openKv();
+  await kv.set(["todos",id],todo)
+}
+
+export { createTodo, listTodos, getTodo,updateTodo }

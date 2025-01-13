@@ -10,6 +10,8 @@ const showForm = async (c) => {
   );
 };
 
+
+
 // controller function that handles the post request
 const createTodo = async (c) => {
   const body = await c.req.parseBody();
@@ -22,10 +24,19 @@ const createTodo = async (c) => {
 
 const showTodo = async (c) => {
   const id = c.req.param("id");
-  
+
   return c.html(
     eta.render("todo.eta", { todo: await todoService.getTodo(id) }),
   );
 }
 
-export { createTodo, showForm, showTodo };
+//writing a function that updates a todo
+const updateTodo = async (c) => {
+  const id = c.req.param("id");
+  const body = await c.req.parseBody();
+  await todoService.updateTodo(id,body)
+  return c.redirect(`/todos/${id}`);
+};
+
+
+export { createTodo, showForm, showTodo, updateTodo };

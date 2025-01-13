@@ -152,3 +152,6 @@ update in CRUD refers to the ability of being able to modify existing data.
 
 
 ## Creating a form for updating todos
+We already have a way to view individual todo items, so we can use that as a starting point for our update functionality. Let's adjust the todo.eta so that instead of showing a todo in a paragraph, it shows a form with a text input field and a submit button, where the text input field has already been populated with the todo text. The form is submitted as a POST request to the /todos/:id endpoint, which we use to identify specific todos.
+
+## Adding a route
