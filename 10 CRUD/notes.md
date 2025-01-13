@@ -146,3 +146,9 @@ Let's add first basic functionality to the controller that just responds with a 
 
 Let's create the showTodo function to todoController.js. The showTodo function needs to read the path variable id from the request, and respond with the id in text format. To read the path variable, we can use the c.req.param method, which takes the path variable identifier -- in our case id -- as a parameter.
 
+# Update
+
+update in CRUD refers to the ability of being able to modify existing data.
+
+
+## Creating a form for updating todos
