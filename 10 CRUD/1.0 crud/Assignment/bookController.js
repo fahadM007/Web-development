@@ -12,7 +12,7 @@ const showForm = async (c) => {
 const createBook = async (c) => {
   const body = await c.req.parseBody();
   await bookService.createBook(body);
-  return c.redirect("/books");
+  return c.redirect("/v1/books");
 };
 
 const showBook = async (c) => {
@@ -26,14 +26,14 @@ const updateBook = async (c) => {
   const id = c.req.param("id");
   const body = await c.req.parseBody();
   await bookService.updateBook(id, body);
-  return c.redirect(`/books/${id}`);
+  return c.redirect(`/v1/books/${id}`);
 };
 
 
 const deleteBook = async (c) => {
   const id = c.req.param("id");
   await bookService.deleteBook(id);
-  return c.redirect("/books");
+  return c.redirect("/v1/books");
 }
 
 

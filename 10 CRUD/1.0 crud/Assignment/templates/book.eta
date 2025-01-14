@@ -4,7 +4,7 @@
     <title>Books</title>
   </head>
   <body>
-    <form method="POST" action="/books/<%= it.book.id %>">
+    <form method="POST" action="/v1/books/<%= it.book.id %>">
       <label for="name">Book name:</label>
       <input type="text" id="name" name="name" value="<%= it.book.name %>" /><br/>
       <label for="pages">Number of pages:</label>
@@ -14,6 +14,6 @@
       <input type="submit" value="Update" />
     </form>
     
-    <p><a href="/books">Back to books</a></p>
+    <p><a href="/v1/books">Back to books</a></p>
   </body>
 </html>
