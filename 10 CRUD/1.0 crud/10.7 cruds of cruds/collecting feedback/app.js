@@ -1,24 +1,38 @@
-import { Eta } from "https://deno.land/x/eta@v3.4.0/src/index.ts";
 import { Hono } from "https://deno.land/x/hono@v3.12.11/mod.ts";
-import * as feedbacks from "./feedbacks.js";
 
-const eta = new Eta({ views: `${Deno.cwd()}/templates/` });
+import * as courseController from "./courseControllers.js";
+import * as feedbackControllers from "./feedbackControllers.js";
 const app = new Hono();
 
-app.get("/", async (c) => {
-  return c.html(eta.render("index.eta"));
-});
+//  route that that render the course form
+app.get("/courses", courseController.showForm);
 
-app.get("/feedbacks/:id", async (c) => {
-  const id = c.req.param("id");
-  const feedbackCount = await feedbacks.getFeedbackCount(id);
-  return c.text(`Feedback ${id}: ${feedbackCount}`);
-});
+//http://0.0.0.0:8000/courses
 
-app.post("/feedbacks/:id", async (c) => {
-  const id = c.req.param("id");
-  await feedbacks.incrementFeedbackCount(id);
-  return c.redirect("/");
-});
+
+// route that add a course on a post request
+app.post("/courses", courseController.createCourse);
+
+// route that renders individual courses with function showCourse
+app.get("/courses/:courseId", courseController.showCourse);
+
+
+
+
+//route that updates the course on a post request
+
+app.post("/courses/:courseId",courseController.updateCourse);
+
+//route that deletes a specific course
+app.post("/courses/:courseId/delete", courseController.deleteCourse);
+
+
+//feedback routes 
+
+app.get("/", feedbackControllers.showForm);
+
+app.get("/feedbacks/:id", feedbackControllers.showFeedbacks);
+
+app.post("/feedbacks/:id", feedbackControllers.createFeedbacks);
 
 export default app;

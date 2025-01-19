@@ -1,16 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
-  <title>Course</title>
-</head>
-<body>
- <p>Add a courses:</p>
-  <form method="POST" action="/course">
-    <label for="course">Course name:</label>
-    <input type="text" id="course" name="course"/> <br/>
-    <input type="submit" value="Add">
-  </form>
-</body>
+<html>
+  <head>
+    <title>COURSE</title>
+  </head>
+  <body>
+    <p>Add a course:</p>
+    <form method="POST" action="/courses">
+      <label for="course">Todo:</label>
+      <input type="text" id="course" name="course" /><br/>
+      <input type="submit" value="Add" />
+    </form>
+    <p>Existing courses:</p>
+    <ul>
+    <% it.courses.forEach((course) => { %>
+      <li><a href="/courses/<%= course.id %>"><%= course.course %></a></li> <br>
+      <form method="POST" action="/courses/<%= course.id %>/delete">
+          <input type="submit" value="Delete" />
+        </form>
+    <% }); %>
+    </ul>
+  </body>
 </html>

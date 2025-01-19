@@ -1,4 +1,3 @@
-
 const getFeedbackCount = async (id) => {
   const kv = await Deno.openKv();
   const store = await kv.get(["feedbacks", id]);
