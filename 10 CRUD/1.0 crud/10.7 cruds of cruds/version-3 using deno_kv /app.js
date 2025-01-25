@@ -1,7 +1,7 @@
 import { Eta } from "https://deno.land/x/eta@v3.4.0/src/index.ts";
 import { Hono } from "https://deno.land/x/hono@v3.12.11/mod.ts";
-import * as courseController from './courseController.js';
 import * as feedbacks from "./feedbacks.js";
+import * as courseController from './courseController.js'
 
 
 const eta = new Eta({ views: `${Deno.cwd()}/templates/` });
@@ -24,9 +24,9 @@ app.post("/feedbacks/:id", async (c) => {
 });
 
 app.get("/courses", courseController.showForm);
-app.get("/courses/:id", courseController.showCourse);
+app.get("/courses/:courseId", courseController.showCourse);
 app.post("/courses", courseController.createCourse);
-app.post("/courses/:id", courseController.updateCourse);
-app.post("/courses/:id/delete", courseController.deleteCourse);
+app.post("/courses/:courseId", courseController.updateCourse);
+app.post("/courses/:courseId/delete", courseController.deleteCourse);
 
 export default app;

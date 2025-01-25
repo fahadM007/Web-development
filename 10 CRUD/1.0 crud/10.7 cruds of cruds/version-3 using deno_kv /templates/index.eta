@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Feedback page</title>
+    <title>Rate experience!</title>
   </head>
   <body>
-    <p>How would you rate this experience?</p>
+    <h1>How would you rate this experience?</h1>
     <form method="POST" action="/feedbacks/1">
       <input type="submit" value="Poor"></input>
     </form>

@@ -1,3 +1,4 @@
+
 const getFeedbackCount = async (id) => {
   const kv = await Deno.openKv();
   const store = await kv.get(["feedbacks", id]);
@@ -10,4 +11,4 @@ const incrementFeedbackCount = async (id) => {
   await kv.set(["feedbacks", id], count + 1);
 };
 
-export { getFeedbackCount, incrementFeedbackCount }
+export { getFeedbackCount, incrementFeedbackCount };

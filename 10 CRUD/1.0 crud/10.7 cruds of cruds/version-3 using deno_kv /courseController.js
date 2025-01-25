@@ -25,7 +25,7 @@ const createCourse = async (c) => {
 //controller function that shows individual courses 
 
 const showCourse = async (c) => {
-  const id = c.req.param("id");
+  const id = c.req.param("courseId");
 
   return c.html(
     eta.render("course.eta", { course: await courseService.getCourse(id) }),
@@ -34,7 +34,7 @@ const showCourse = async (c) => {
 
 //writing a function that updates a course
 const updateCourse = async (c) => {
-  const id = c.req.param("id");
+  const id = c.req.param("courseId");
   const body = await c.req.parseBody();
   await courseService.updateCourse(id,body)
   return c.redirect(`/courses/${id}`);
@@ -43,7 +43,7 @@ const updateCourse = async (c) => {
 //create a function that delets a course 
 
 const deleteCourse = async(c) => {
-  const id = await c.req.param("id");
+  const id = await c.req.param("courseId");
   await courseService.deleteCourse(id);
   return c.redirect("/courses");
 }
