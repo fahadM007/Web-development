@@ -26,7 +26,7 @@ types of data validation that are common
 
 1. client side validation 
 2. server side validation 
-3. database 
+3. database validation 
 
 * client side validation:refers to verifying that the users type in data in a specific format. This is done with specific input fields as well as with client-side JavaScript. In practice, client-side validation is done for usability -- anyone who knows a bit about how the web works can bypass client-side data validation and send invalid data to the server.
 
