@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Email form</title>
+  </head>
+  <body>
+    <form method="POST" action="/emails" novalidate>
+      <label for="email">Type in your email:</label>
+      <input type="email" id="email" name="email" /><br/>
+      <input type="submit" />
+    </form>
+  </body>
+</html>

@@ -7,8 +7,12 @@ const eta = new Eta({views:"templates"});
 //we create a validation middleware  for the application
 
 const validator = z.object({
-  email: z.string().email(),
-  yearOfBirth: z.coerce.number().min(1900).max(2030),
+  email: z.string().email({ message: "The email was not a valid email." }),
+  yearOfBirth: z.coerce.number({
+    message: "The year of birth was not a number.",
+  })
+    .min(1900, { message: "The year of birth cannot be smaller than 1900." })
+    .max(2030, { message: "The year of birth cannot be larger than 2030." }),
 });
 
 //initializes an instance of the Hono 
