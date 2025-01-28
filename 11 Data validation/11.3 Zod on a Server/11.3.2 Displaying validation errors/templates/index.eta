@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hello forms!</title>
+  </head>
+  <body>
+  <% if (it?.errors?.email?._errors) { %>
+    <p>Email validation errors:</p>
+    <ul>
+      <% it?.errors?.email?._errors.forEach((error) => { %>
+      <li><%= error %></li>
+      <% }); %>
+    </ul>
+    <% } %>
+     <% if (it?.errors?.email?._errors) { %>
+    <p>Email validation errors:</p>
+    <ul>
+      <% it?.errors?.email?._errors.forEach((error) => { %>
+      <li><%= error %></li>
+      <% }); %>
+    </ul>
+    <% } %>
+    <% 
+      let emailValue = ''; 
+      if (it !== undefined && it !== null) {
+        if (it.email !== undefined && it.email !== null) {
+          emailValue = it.email;
+        }
+      }
+
+      let yearOfBirthValue = '';
+      if (it !== undefined && it !== null) {
+        if (it.yearOfBirth !== undefined && it.yearOfBirth !== null) {
+          yearOfBirthValue = it.yearOfBirth;
+        }
+      }
+    %>
+    <form method="POST" action="/emails">
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" value="<%= emailValue %>"/><br/>
+      <label for="yearOfBirth">Year of birth:</label>
+      <input type="number" id="yearOfBirth" name="yearOfBirth"  value="<%= yearOfBirthValue %>" /><br/>
+      <input type="submit" />
+    </form>
+  </body>
+</html>
