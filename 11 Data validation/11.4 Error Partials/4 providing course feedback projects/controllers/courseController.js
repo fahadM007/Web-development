@@ -1,6 +1,6 @@
 import { Eta } from "https://deno.land/x/eta@v3.4.0/src/index.ts";
-import * as courseService from "./courseService.js";
-import * as feedbacks from "./feedbacks.js";
+import * as courseService from "../services/courseService.js";
+import * as feedbacksServices from "../services/feedbacksServices.js";
 
 const eta = new Eta({ views: `${Deno.cwd()}/templates/` });
 
@@ -34,16 +34,16 @@ const deleteCourse = async (c) => {
 const showFeedback = async (c) => {
   const courseId = c.req.param("courseId");
   const feedbackId = c.req.param("feedbackId");
-  const count = await feedbacks.getFeedbackCount(courseId, feedbackId);
+  const count = await feedbacksServices.getFeedbackCount(courseId, feedbackId);
   return c.text(`Feedback ${feedbackId}: ${count}`);
 }
 
-const rateCourse =  async (c) => {
+const rateCourse = async (c) => {
   const courseId = c.req.param("courseId");
   const feedbackId = c.req.param("feedbackId");
 
-  await feedbacks.incrementFeedbackCount(courseId, feedbackId);
-  return c.redirect(`/courses/${courseId}`);redirect(`/course/${courseId}`);
+  await feedbacksServices.incrementFeedbackCount(courseId, feedbackId);
+  return c.redirect(`/courses/${courseId}`); redirect(`/course/${courseId}`);
 }
 
-export {showForm,showCourse,createCourse,deleteCourse,showFeedback,rateCourse}
+export { showForm, showCourse, createCourse, deleteCourse, showFeedback, rateCourse }
