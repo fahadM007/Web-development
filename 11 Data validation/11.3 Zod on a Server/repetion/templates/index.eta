@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hello forms!</title>
+  </head>
+  <body>
+    <form method="POST" action="/emails" novalidate >
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" value="<%= it?.email ?? '' %>" /><br/>
+      <label for="yearOfBirth">Year of birth:</label>
+      <input type="number" id="yearOfBirth" name="yearOfBirth" value="<%= it?.yearOfBirth ?? '' %>" /><br/>
+      <input type="submit" />
+    </form>
+  </body>
+</html>
