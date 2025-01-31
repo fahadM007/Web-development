@@ -6,11 +6,15 @@ const eta = new Eta({ views: "templates" });
 
 const app = new Hono()
 
-//validation 
+//validation with custom validation error messages with attribute message 
 
 const validator = z.object({
-  email: z.string().email(),
-  yearOfBirth: z.coerce.number().min(1900).max(2030),
+  email: z.string().email({ message: "The email was not a valid email." }),
+  yearOfBirth: z.coerce.number({
+    message: "The year of birth was not a number.",
+  })
+    .min(1900, { message: "The year of birth cannot be smaller than 1900." })
+    .max(2030, { message: "The year of birth cannot be larger than 2030." }),
 });
 
 
@@ -22,9 +26,14 @@ app.post("/emails", async (c) => {
   const body = await c.req.parseBody();
 
   const validationResult = validator.safeParse(body);
-  console.log(validationResult.error.format());
-  if(!validationResult.success){
-    return c.html(eta.render("index.eta",body));
+
+  if (!validationResult.success) {
+    return c.html(eta.render("index.eta", {
+      email: body.email,
+      yearOfBirth: body.yearOfBirth,
+      errors: validationResult.error.format(),
+    }),
+    );
   }
   return c.text("ok");
 })
@@ -32,17 +41,36 @@ app.post("/emails", async (c) => {
 
 Deno.serve(app.fetch);
 
-/*curl -X POST -d email="valid@email.com" -d yearOfBirth="1899" localhost:8000/emails
+/*
+{ email: "valid@email.com", yearOfBirth: "1899" }
+
+curl -X POST -d email="valid@email.com" -d yearOfBirth="1899" localhost:8000/emails
 not ok
 curl -X POST -d email="valid@email.com" -d yearOfBirth="1900" localhost:8000/emails
 ok
 curl -X POST -d email="nonvalid@email" -d yearOfBirth="1900" localhost:8000/emails
-not ok 
-
+not ok
+{ email: "valid@email.com", yearOfBirth: "1899" }
 {
   _errors: [],
   yearOfBirth: { _errors: [ "Number must be greater than or equal to 1900" ] }
 }
+
+
+*/
+
+// adding a new attribute to the body
+// the attribute errors is an object the 
+/*The attribute errors is an object with attributes corresponding to the form field names. For each form field name, given that there are validation errors, the associated attribute contains a list of errors under the attribute _errors. As an example, if the email validation would fail, specific errors for the email would be found at errors.email._errors.
+ 
+{
+_errors: [],
+email: { _errors: [ "Invalid email" ] },
+yearOfBirth: { _errors: [ "Number must be greater than or equal to 1900" ] }
+}
+
+
+
 
 
 */
