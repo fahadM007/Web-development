@@ -18,11 +18,11 @@
     <p>Add a book:</p>
     <form method="POST" action="/books">
       <label for="name">Book name:</label>
-      <input type="text" id="name" name="name" /><br/>
+     <input type="text" id="name" name="name" value="<%= it?.name ?? '' %>" /><br/>
       <label for="pages">Number of pages:</label>
-      <input type="number" id="pages" name="pages" /><br/>
+     <input type="text" id="pages" name="pages" value="<%= it?.pages ?? '' %>" /><br/>
       <label for="isbn">ISBN:</label>
-      <input type="text" id="isbn" name="isbn" /><br/>
+      <input type="text" id="isbn" name="isbn" value="<%= it?.isbn ?? '' %>" /><br/>
       <input type="submit" value="Add" />
     </form>
     <p>Existing books:</p>
@@ -38,3 +38,8 @@
     </ul>
   </body>
 </html>
+
+
+
+
+
