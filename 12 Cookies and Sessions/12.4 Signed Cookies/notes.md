@@ -6,14 +6,14 @@ One to the problem of the user changing the cookie content is to create an encry
 
 `getSignedCookie` and `setSignedCookie` functions 
 
-the `getSignedCookie` function takes a `Context` object , secret and cookie name as arguments.
+the `getSignedCookie` function takes a `Context` object , `secret` and `cookie name` as arguments.
 
 ```js
 getSignedCookie(c,secret,name)
 
 ```
 
-`setSignedCookie` function takes a `Context object` cookie name a cookie value and a secret as argument this signe the cookie and sets the signed cookie in the context object both functions are asynchronous 
+`setSignedCookie` function takes a `Context object` `cookie name ` a cookie value and a secret as argument this signe the cookie and sets the signed cookie in the context object both functions are asynchronous 
 
 ```js
 import { Context } from "hono";
@@ -30,3 +30,11 @@ async function setSignedCookieValue(c: Context, cookieName: string, cookieValue:
 }
 
 ```
+
+The seceret should be a long random string 
+
+# Path and setSignedCookie
+
+The reason for adding the path option becouse the default path for cookies is the path of the request 
+his means that if we would not have added the path: '/' option, the cookie would only be sent to the server if the request path would be /.
+f the request path would be /foo, then the cookie would not be sent to the server.
