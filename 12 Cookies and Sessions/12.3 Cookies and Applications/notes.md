@@ -138,3 +138,12 @@ Hello cookies! -- 1
 ✅ **Bypasses the browser**, making raw HTTP testing possible.  
 
 Would you like to see how to increment the `count` on each request? 🚀
+
+
+# updating the cookie value 
+
+updating the cookie value need both setting and getting the cookie 
+
+if the cookie value exit we update it 
+
+if the value does not exit we set it 
