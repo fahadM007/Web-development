@@ -1,28 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Course</title>
-</head>
-<body>
-  <h1>How would you rate this course?</h1>
-  <h2><%=it.course.name%></h2>
-
-  <form action="/courses/<%= it.course.id %>/feedbacks/1" method="POST">
-    <button type="submit">Poor</button>
-  </form>
-  <form action="/courses/<%= it.course.id %>/feedbacks/2" method="POST">
-    <button type="submit">Fair</button>
-  </form>
-  <form action="/courses/<%= it.course.id %>/feedbacks/3" method="POST">
-    <button type="submit">Good</button>
-  </form>
-  <form action="/courses/<%= it.course.id %>/feedbacks/4" method="POST">
-    <button type="submit">Very Good</button>
-  </form>
-  <form action="/courses/<%= it.course.id %>/feedbacks/5" method="POST">
-    <button type="submit">Excellent</button>
-  </form>
-</body>
+<html>
+  <head>
+    <title>Course Feedback</title>
+  </head>
+  <body>
+    <h1>Feedback for Course <%= it.course.name %></h1>
+    <% if (it.count > 1) { %>
+      <p>You have already given feedback for this course. Thank you!</p>
+    <% } else { %>
+      <p>How would you rate this experience?</p>
+      <form method="POST" action="/courses/<%= it.courseId %>/feedbacks/1">
+        <input type="submit" value="Poor"></input>
+      </form>
+      <form method="POST" action="/courses/<%= it.courseId %>/feedbacks/2">
+        <input type="submit" value="Fair"></input>
+      </form>
+      <form method="POST" action="/courses/<%= it.courseId %>/feedbacks/3">
+        <input type="submit" value="Good"></input>
+      </form>
+      <form method="POST" action="/courses/<%= it.courseId %>/feedbacks/4">
+        <input type="submit" value="Very good"></input>
+      </form>
+      <form method="POST" action="/courses/<%= it.courseId %>/feedbacks/5">
+        <input type="submit" value="Excellent"></input>
+      </form>
+    <% } %>
+  </body>
 </html>
