@@ -9,17 +9,17 @@ const app = new Hono();
 
 const eta = new Eta({ views: `${Deno.cwd()}/templates/` });
 
-app.get("/", (c) => {
-  let name = getCookie(c, "name");
-  return c.html(
-    eta.render("index.eta", { name: name }),
-  );
-});
+// add functionality 
 
-app.post("/", async (c) => {
-  const body = await c.req.parseBody();
-  setCookie(c, "name", body.name);
-  return c.redirect("/");
-});
+app.get("/", (c) => {
+  getCookie(c,"name",)
+  return c.html(eta.render("index.eta"))
+})
+
+app.post("/", (c) => {
+  const body = c.req.pareBody();
+  
+  return c.html(eta.render("index.eta",body))
+})
 
 export default app;
